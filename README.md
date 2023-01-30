@@ -6,6 +6,6 @@
   <li>Trello : https://trello.com/b/76RjbAFl/mysounds</li>
 </ul>
 
-## Guide d'instalation
+## Guide d'installation
 
 ## Guide d'utilisation
