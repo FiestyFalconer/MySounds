@@ -1,8 +1,10 @@
 # MySounds
 
 ## Liens du projet
-Github : https://github.com/FiestyFalconer/MySounds
-Trello : https://trello.com/b/76RjbAFl/mysounds
+<ul>
+  <li>Github : https://github.com/FiestyFalconer/MySounds</li>
+  <li>Trello : https://trello.com/b/76RjbAFl/mysounds</li>
+</ul>
 
 ## Guide d'instalation
 
