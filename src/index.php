@@ -1,5 +1,14 @@
 <?php
-require_once "navBar.php";
+    session_start();
+
+    if(!isset($_SESSION['idUser'])){
+        $_SESSION = [
+            'idUser' => '',
+            'connected' => false
+        ];
+    }
+
+    require_once "navBar.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
