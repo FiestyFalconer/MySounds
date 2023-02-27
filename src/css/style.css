@@ -1,3 +1,156 @@
-nav{
+/* Navbar style*/
+nav
+{
     margin: auto;
+}
+
+.nav-link
+{
+    font-size: 16px;
+}
+
+.fa-xl
+{
+    font-size: 20px;
+}
+
+.form-control
+{
+ width: 100%
+}
+
+#navTitle
+{
+    width: 10%;
+}
+
+#navFirstUl
+{
+    width: 75%;
+}
+
+#navSecondUl
+{
+    width: 15%;
+}
+
+#search
+{
+    width: 40%;
+}
+
+@media only screen and (max-width: 2130px)
+{  
+    #navFirstUl
+    {
+        width: 82%;
+    }
+    
+    #navSecondUl
+    {
+        width: 18%;
+    }
+
+    #search
+    {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1800px)
+{  
+    #navFirstUl
+    {
+        width: 78%;
+    }
+    
+    #navSecondUl
+    {
+        width: 22%;
+    }
+
+    #search
+    {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 1500px)
+{  
+    #navFirstUl
+    {
+        width: 74%;
+    }
+    
+    #navSecondUl
+    {
+        width: 26%;
+    }
+
+    #search
+    {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1300px)
+{  
+    #navFirstUl
+    {
+        width: 70%;
+    }
+    
+    #navSecondUl
+    {
+        width: 30%;
+    }
+
+    #search
+    {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 1140px)
+{  
+    #navFirstUl
+    {
+        width: 59%;
+    }
+    
+    #navSecondUl
+    {
+        width: 36%;
+    }
+
+    #search
+    {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 996px)
+{  
+    #navFirstUl
+    {
+        width: 100%;
+    }
+    
+    #navSecondUl
+    {
+        width: 100%;
+    }
+
+    #search
+    {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{  
+    #search
+    {
+        width: 80%;
+    }
 }

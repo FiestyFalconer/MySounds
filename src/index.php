@@ -1,3 +1,6 @@
+<?php
+require_once "navBar.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,23 +22,37 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-        <a class="navbar-brand my-3" href="#"><i class="fa-xl fa-solid fa-headphones"></i> MySounds</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse mx-lg-5" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-lg-0">
-                <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-house fa-xl"></i> Accueil</a>
-                </li>
-            </ul>
-            <form class="d-flex" method="post">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand my-1" id="navTitle" href="index.php"><i class="fa-2xl fa-solid fa-headphones"></i> MySounds</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse mx-lg-5" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav me-auto mb-lg-0" id="navFirstUl">
+                        <li class="nav-item mx-1">
+                            <a class="nav-link active" aria-current="page" href="index.php"><i class="fa-solid fa-house fa-xl"></i> Accueil</a>
+                        </li>
+
+                        <?= $gestionDesMusiques?>
+
+                        <li class="nav-item mx-2" id="search">
+                            <form class="d-flex" method="post">
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light border-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav d-flex justify-content-center" id="navSecondUl">
+                        <?=$nav?>
+                    </ul>
+                </div>
             </div>
-        </div>
         </nav>
     </header>
     <main>
