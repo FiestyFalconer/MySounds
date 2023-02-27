@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['idUser'])){
+        $_SESSION = [
+            'idUser' => '',
+            'connected' => false
+        ];
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

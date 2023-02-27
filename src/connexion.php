@@ -1,14 +1,32 @@
 <?php
+require_once "../src/model/connexionModel.php";
+
+$submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $motDePasse = filter_input(INPUT_POST, 'motDePasse', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $messageErreur = "";
 
-if ($email != "" && $motDePasse != "") {
-    
-} else {
-    $messageErreur = "Il faut mettre un email et un mot de passe";
+if ($submit == "submit") {
+
+    if ($email != "" && $motDePasse != "") {
+        if (VerificationUser($email)) {
+            $_SESSION['idUser'] = VerificationUser($email)['idUser'];
+
+            if (password_verify($motDePasse, VerificationUser($email)['motDePasse'])) {
+                $_SESSION['connected'] = true;
+            } else {
+                $_SESSION['idUser'] = "";
+                $messageErreur = '<div class="alert alert-warning" role="alert">Email ou mot de passe incorrect</div>';
+            }
+        } else {
+            $messageErreur = '<div class="alert alert-warning" role="alert">Email ou mot de passe incorrect</div>';
+        }
+    } else {
+        $messageErreur = '<div class="alert alert-warning" role="alert">Saisissez votre email et mot de passe</div>';
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,35 +46,31 @@ if ($email != "" && $motDePasse != "") {
         <div class="container">
             <h1>Connexion</h1>
 
-            <form>
+            <form action="" method="post">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="email" name="email" id="form2Example1" class="form-control" />
-                    <label class="form-label" for="form2Example1">Email address</label>
+                    <input type="email" name="email" id="email" class="form-control" />
+                    <label class="form-label" for="email">Email address</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" name="motDePasse" id="form2Example2" class="form-control" />
-                    <label class="form-label" for="form2Example2">Password</label>
-                </div>
-
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
-                    <div class="col d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                            <label class="form-check-label" for="form2Example31"> Remember me </label>
-                        </div>
-                    </div>
+                    <input type="password" name="motDePasse" id="motDePasse" class="form-control" />
+                    <label class="form-label" for="motDePasse">Password</label>
                 </div>
 
                 <!-- Submit button -->
-                <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                <button type="submit" name="submit" class="btn btn-primary btn-block mb-4" value="submit">Submit</button>
+
+                <div class="text-center">
+                    <p>Pas de compte? <a href="#!"> Inscription</a></p>
+                </div>
 
             </form>
         </div>
+
+        <?= $messageErreur ?>
+
     </main>
     <script src="assets/bootstrap/js/bootstrap.js"></script>
 </body>

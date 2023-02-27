@@ -1,7 +1,7 @@
 <?php
-require_once "./config.php";
+require_once "../src/model/config.php";
 
-function getConnexion(){
+function GetConnexion(){
     static $myDb = null;
 
     if($myDb == null){
