@@ -4,7 +4,8 @@
     if(!isset($_SESSION['idUser'])){
         $_SESSION = [
             'idUser' => '',
-            'connected' => false
+            'connected' => false,
+            'admin' => false
         ];
     }
 

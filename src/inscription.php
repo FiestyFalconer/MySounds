@@ -1,13 +1,35 @@
 <?php
+require_once "../src/model/connexionModel.php";
+require_once "../src/model/inscriptionModel.php";
+session_start();
+
 $submit = filter_input(INPUT_POST,'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 $nom = filter_input(INPUT_POST,'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $motDePasse1 = filter_input(INPUT_POST, 'motDePasse1', FILTER_SANITIZE_SPECIAL_CHARS);
 $motDePasse2 = filter_input(INPUT_POST, 'motDePasse2', FILTER_SANITIZE_SPECIAL_CHARS);
 
+$passwordHash = "";
+$message = "";
+
 if($submit == 'submit'){
   if($nom != "" && $email != "" && $motDePasse1 != "" && $motDePasse2 != ""){
-
+    if($motDePasse1 == $motDePasse2){
+      if(!VerificationUser($email)){
+        $message = '<div class="alert alert-success" role="alert">Votre compte a été crée</div>';
+        $passwordHash = password_hash($motDePasse1, PASSWORD_BCRYPT);
+        NewUser($email,$nom,$passwordHash);
+      }
+      else{
+        $message = '<div class="alert alert-warning" role="alert">L\'email existe déjà</div>';
+      }
+    }
+    else{
+      $message = '<div class="alert alert-warning" role="alert">Les mots de passe ne sont pas identiques</div>';
+    }
+  }
+  else{
+    $message = '<div class="alert alert-warning" role="alert">Il faut remplir tous les champs</div>';
   }
 }
 
@@ -82,10 +104,12 @@ if($submit == 'submit'){
                       </div>
 
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="submit" class="btn btn-primary btn-lg" value="submit">Submit</button>
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg" value="submit">Submit</button>
                       </div>
 
                     </form>
+
+                    <?=$message?>
 
                   </div>
 
