@@ -6,12 +6,12 @@ nav
 
 .nav-link
 {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .fa-xl
 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .form-control
@@ -36,7 +36,7 @@ nav
 
 #search
 {
-    width: 40%;
+    width: 50%;
 }
 
 @media only screen and (max-width: 2130px)
@@ -53,7 +53,7 @@ nav
 
     #search
     {
-        width: 45%;
+        width: 50%;
     }
 }
 
@@ -97,58 +97,55 @@ nav
 {  
     #navFirstUl
     {
-        width: 70%;
+        width: 72%;
     }
     
     #navSecondUl
     {
-        width: 30%;
-    }
-
-    #search
-    {
-        width: 55%;
-    }
-}
-
-@media only screen and (max-width: 1140px)
-{  
-    #navFirstUl
-    {
-        width: 59%;
-    }
-    
-    #navSecondUl
-    {
-        width: 36%;
-    }
-
-    #search
-    {
-        width: 70%;
-    }
-}
-
-@media only screen and (max-width: 996px)
-{  
-    #navFirstUl
-    {
-        width: 100%;
-    }
-    
-    #navSecondUl
-    {
-        width: 100%;
+        width: 28%;
     }
 
     #search
     {
         width: 60%;
     }
+
+    #navTitle
+    {
+        width: 12.5%;
+    }
+}
+
+@media only screen and (max-width: 1140px)
+{  
+    #navTitle
+    {
+        width: 20%;
+    }
+
+    #navFirstUl
+    {
+        width: 100%;
+    }
+    
+    #navSecondUl
+    {
+        width: 100%;
+    }
+
+    #search
+    {
+        width: 70%;
+    }
 }
 
 @media only screen and (max-width: 600px)
 {  
+    #navTitle
+    {
+        width: 30%;
+    }
+
     #search
     {
         width: 80%;
