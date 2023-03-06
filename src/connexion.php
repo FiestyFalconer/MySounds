@@ -1,5 +1,6 @@
 <?php
 require_once "../src/model/connexionModel.php";
+session_start();
 
 $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -15,6 +16,8 @@ if ($submit == "submit") {
 
             if (password_verify($motDePasse, VerificationUser($email)['motDePasse'])) {
                 $_SESSION['connected'] = true;
+                $_SESSION['admin'] = VerificationUser($email)['admin'];
+                header("Location: ../src/index.php");
             } else {
                 $_SESSION['idUser'] = "";
                 $messageErreur = '<div class="alert alert-warning" role="alert">Email ou mot de passe incorrect</div>';
@@ -26,7 +29,7 @@ if ($submit == "submit") {
         $messageErreur = '<div class="alert alert-warning" role="alert">Saisissez votre email et mot de passe</div>';
     }
 }
-
+var_dump($_SESSION['connected']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +50,10 @@ if ($submit == "submit") {
             <h1>Connexion</h1>
 
             <form action="" method="post">
+                
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="email" name="email" id="email" class="form-control" />
+                    <input type="email" name="email" id="email" value="<?=$email?>" class="form-control" />
                     <label class="form-label" for="email">Email address</label>
                 </div>
 

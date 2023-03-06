@@ -4,7 +4,7 @@ require_once "../src/model/connexionBd.php";
 function VerificationUser($email){
     try{
         $query = GetConnexion()->prepare("
-            SELECT `idUser`, `motDePasse`
+            SELECT `idUser`, `motDePasse`, `admin`
             FROM `UTILISATEURS` 
             WHERE `email` = ?
         ");
