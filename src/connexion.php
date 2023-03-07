@@ -41,7 +41,7 @@ if ($submit == "submit")
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -54,7 +54,10 @@ if ($submit == "submit")
     <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
     <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
 
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
