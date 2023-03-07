@@ -22,13 +22,13 @@ if ($submit == 'submit') {
         $passwordHash = password_hash($motDePasse1, PASSWORD_BCRYPT);
         NewUser($email, $nom, $passwordHash);
       } else {
-        $message = '<div class="alert alert-warning" role="alert">L\'email existe déjà</div>';
+        $message = '<div class="alert alert-warning text-center" role="alert">L\'email existe déjà</div>';
       }
     } else {
-      $message = '<div class="alert alert-warning" role="alert">Les mots de passe ne sont pas identiques</div>';
+      $message = '<div class="alert alert-warning text-center" role="alert">Les mots de passe ne sont pas identiques</div>';
     }
   } else {
-    $message = '<div class="alert alert-warning" role="alert">Il faut remplir tous les champs</div>';
+    $message = '<div class="alert alert-warning text-center" role="alert">Il faut remplir tous les champs</div>';
   }
 }
 ?>
@@ -57,9 +57,12 @@ if ($submit == 'submit') {
     <!--Navbar-->
     <?= $commmonNav ?>
   </header>
+
   <main class="container-fluid mainContainer mt-5">
     <div class="d-flex flex-column justify-content-center text-black w-100">
       <h1 class="text-center h1 fw-bold mt-4 mb-4">S'inscrire</h1>
+
+      <?= $message ?>
 
       <form action="" method="post" class="py-4">
 
@@ -96,7 +99,7 @@ if ($submit == 'submit') {
         </div>
 
         <div class="d-flex justify-content-center mb-3 mb-lg-4">
-          <button type="submit" name="submit" class="btn btn-primary btn-lg submitBtn" value="submit">Créer un compte</button>
+          <button type="submit" name="submit" class="btn btn-primary p-2 submitBtn" value="submit">Créer un compte</button>
         </div>
 
         <div class="container-fluid alert alert-heading alert-secondary text-center mt-4">
@@ -107,7 +110,6 @@ if ($submit == 'submit') {
 
       </form>
 
-      <?= $message ?>
     </div>
   </main>
   <script src="assets/bootstrap/js/bootstrap.js"></script>

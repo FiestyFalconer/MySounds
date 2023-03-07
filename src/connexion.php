@@ -82,7 +82,7 @@ if ($submit == "submit") {
                 </div>
 
                 <div class="d-flex justify-content-center mb-3 mb-lg-4">
-                    <button type="submit" name="submit" class="btn btn-primary btn-lg submitBtn" value="submit">Se connecter</button>
+                    <button type="submit" name="submit" class="btn btn-primary p-2 submitBtn" value="submit">Se connecter</button>
                 </div>
 
                 <div class="container-fluid alert alert-heading alert-secondary text-center mt-4">
