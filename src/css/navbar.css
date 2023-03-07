@@ -1,4 +1,3 @@
-/* Navbar style*/
 nav
 {
     margin: auto;
@@ -71,10 +70,6 @@ nav
         width: 26%;
     }
 
-    #search
-    {
-        width: 60%;
-    }
 }
 
 @media only screen and (max-width: 1300px)
@@ -87,11 +82,6 @@ nav
     #navSecondUl
     {
         width: 28%;
-    }
-
-    #search
-    {
-        width: 60%;
     }
 
     #navTitle
@@ -117,9 +107,14 @@ nav
         width: 100%;
     }
 
-    #search
+    .nav-link
     {
-        width: 70%;
+        margin-top: 10px;
+    }
+
+    #navFirstUl li
+    {
+        margin-top: 10px;
     }
 }
 
@@ -128,10 +123,5 @@ nav
     #navTitle
     {
         width: 30%;
-    }
-
-    #search
-    {
-        width: 80%;
     }
 }

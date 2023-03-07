@@ -14,20 +14,39 @@ $motDePasse2 = filter_input(INPUT_POST, 'motDePasse2', FILTER_SANITIZE_SPECIAL_C
 $passwordHash = "";
 $message = "";
 
-if ($submit == 'submit') {
-  if ($nom != "" && $email != "" && $motDePasse1 != "" && $motDePasse2 != "") {
-    if ($motDePasse1 == $motDePasse2) {
-      if (!VerificationUser($email)) {
-        $message = '<div class="alert alert-success" role="alert">Votre compte a été crée</div>';
+if ($submit == 'submit')
+{
+  if ($nom != "" && $email != "" && $motDePasse1 != "" && $motDePasse2 != "")
+  {
+    if ($motDePasse1 == $motDePasse2)
+    {
+      if (!VerificationUser($email))
+      {
+        // Crée un nouvel utilisateur avec le mot de passe hasher
         $passwordHash = password_hash($motDePasse1, PASSWORD_BCRYPT);
         NewUser($email, $nom, $passwordHash);
-      } else {
+
+        // Affiche un message de success
+        $message = '<div class="alert alert-success text-center" role="alert">Votre compte a été crée </div>';
+
+        // Vide les informations du formulaire
+        $nom = "";
+        $email = "";
+        $motDePasse1 = "";
+        $motDePasse2 = "";
+      }
+      else
+      {
         $message = '<div class="alert alert-warning text-center" role="alert">L\'email existe déjà</div>';
       }
-    } else {
+    }
+    else
+    {
       $message = '<div class="alert alert-warning text-center" role="alert">Les mots de passe ne sont pas identiques</div>';
     }
-  } else {
+  }
+  else
+  {
     $message = '<div class="alert alert-warning text-center" role="alert">Il faut remplir tous les champs</div>';
   }
 }
@@ -69,7 +88,7 @@ if ($submit == 'submit') {
         <div class="d-flex flex-row align-items-center mb-4">
           <i class="fas fa-user fa-lg me-3 fa-fw mb-4 formIcon"></i>
           <div class="form-outline flex-fill mb-0">
-            <input type="text" id="nom" name="nom" class="form-control" />
+            <input type="text" id="nom" name="nom" class="form-control" value="<?=$nom?>">
             <label class="form-label" for="nom">Nom</label>
           </div>
         </div>
@@ -77,7 +96,7 @@ if ($submit == 'submit') {
         <div class="d-flex flex-row align-items-center mb-4">
           <i class="fas fa-envelope me-3 fa-fw mb-4 formIcon"></i>
           <div class="form-outline flex-fill mb-0">
-            <input type="email" id="email" name="email" class="form-control" />
+            <input type="email" id="email" name="email" class="form-control" value="<?=$email?>">
             <label class="form-label" for="email">Email</label>
           </div>
         </div>
@@ -85,7 +104,7 @@ if ($submit == 'submit') {
         <div class="d-flex flex-row align-items-center mb-4">
           <i class="fas fa-lock fa-lg me-3 fa-fw mb-4 formIcon"></i>
           <div class="form-outline flex-fill mb-0">
-            <input type="password" id="motDePasse" name="motDePasse1" class="form-control" />
+            <input type="password" id="motDePasse" name="motDePasse1" class="form-control" value="<?=$motDePasse1?>">
             <label class="form-label" for="motDePasse1">Mot de passe</label>
           </div>
         </div>
@@ -93,7 +112,7 @@ if ($submit == 'submit') {
         <div class="d-flex flex-row align-items-center mb-4">
           <i class="fas fa-key fa-lg me-3 fa-fw mb-4 formIcon"></i>
           <div class="form-outline flex-fill mb-0">
-            <input type="password" id="motDePasse2" name="motDePasse2" class="form-control" />
+            <input type="password" id="motDePasse2" name="motDePasse2" class="form-control" value="<?=$motDePasse2?>">
             <label class="form-label" for="motDePasse2">Confirmer mot de passe</label>
           </div>
         </div>

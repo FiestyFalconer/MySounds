@@ -4,7 +4,7 @@ $adminNav ="";
 $userNav = "";
 
 /* Affiche uniquement si l'utilisateur est connecter */
-if ($_SESSION['connected'] == true) ////////////////////////// Changer la valeur à true une fois que l'utilisateur est crée.................
+if ($_SESSION['connected'] == true)
 {
     $userNav = '
     <li class="nav-item mx-2">
@@ -17,7 +17,7 @@ if ($_SESSION['connected'] == true) ////////////////////////// Changer la valeur
     ';
 
     /* Affiche uniquement si l'utilisateur est connecté entant qu'administrateur */
-    if($_SESSION['admin'] == true) ////////////////////////// Changer la valeur à true une fois que l'admin est crée.................
+    if($_SESSION['admin'] == true)
     {
         $adminNav = '
         <li class="nav-item mx-1">

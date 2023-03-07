@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if ($_SESSION['connected'] == true)
+{
+    header("location: index.php");
+    exit();
+}
+
 require_once "../src/model/connexionModel.php";
 require_once "navBar.php";
 
@@ -10,13 +16,15 @@ $motDePasse = filter_input(INPUT_POST, 'motDePasse', FILTER_SANITIZE_SPECIAL_CHA
 
 $messageErreur = "";
 
-if ($submit == "submit") {
-
-    if ($email != "" && $motDePasse != "") {
-        if (VerificationUser($email)) {
+if ($submit == "submit")
+{
+    if ($email != "" && $motDePasse != "")
+    {
+        if (VerificationUser($email))
+        {
             $_SESSION['idUser'] = VerificationUser($email)['idUser'];
-
-            if (password_verify($motDePasse, VerificationUser($email)['motDePasse'])) {
+            if (password_verify($motDePasse, VerificationUser($email)['motDePasse']))
+            {
                 $_SESSION['connected'] = true;
                 $_SESSION['admin'] = VerificationUser($email)['admin'];
                 header("Location: ../src/index.php");
@@ -31,7 +39,6 @@ if ($submit == "submit") {
         $messageErreur = '<div class="alert alert-warning text-center" role="alert">Saisissez votre email et mot de passe</div>';
     }
 }
-// var_dump($_SESSION['connected']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +75,7 @@ if ($submit == "submit") {
                 <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope me-3 fa-fw mb-4 formIcon"></i>
                     <div class="form-outline flex-fill mb-0">
-                        <input type="email" name="email" id="email" value="<?= $email ?>" class="form-control" />
+                        <input type="email" name="email" id="email" value="<?= $email ?>" class="form-control">
                         <label class="form-label" for="email">Email</label>
                     </div>
                 </div>
@@ -76,7 +83,7 @@ if ($submit == "submit") {
                 <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw mb-4 formIcon"></i>
                     <div class="form-outline flex-fill mb-0">
-                        <input type="password" name="motDePasse" id="motDePasse" class="form-control" />
+                        <input type="password" name="motDePasse" id="motDePasse" class="form-control" value="<?= $motDePasse ?>">
                         <label class="form-label" for="motDePasse">Mot de passe</label>
                     </div>
                 </div>
