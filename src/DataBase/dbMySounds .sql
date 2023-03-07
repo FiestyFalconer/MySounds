@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 27 fév. 2023 à 11:15
--- Version du serveur :  10.3.37-MariaDB-0ubuntu0.20.04.1
--- Version de PHP : 7.4.3-4ubuntu2.17
+-- Généré le : mar. 07 mars 2023 à 08:04
+-- Version du serveur :  10.3.38-MariaDB-0ubuntu0.20.04.1
+-- Version de PHP : 7.4.3-4ubuntu2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,8 @@ CREATE TABLE `MUSIQUES` (
   `idMusique` int(11) NOT NULL,
   `nomCreator` varchar(255) NOT NULL,
   `dateSortie` date NOT NULL,
-  `nomImage` varchar(200) NOT NULL
+  `nomImage` varchar(200) NOT NULL,
+  `nomMusique` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -79,10 +80,17 @@ CREATE TABLE `STYLES_MUSIQUES` (
 CREATE TABLE `UTILISATEURS` (
   `idUser` int(11) NOT NULL,
   `nom` varchar(200) NOT NULL,
-  `email` int(255) NOT NULL,
-  `motDePasse` int(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `motDePasse` varchar(255) NOT NULL,
   `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `UTILISATEURS`
+--
+
+INSERT INTO `UTILISATEURS` (`idUser`, `nom`, `email`, `motDePasse`, `admin`) VALUES
+(1, 'Admin', 'admin@gmail.com', '$2y$10$99okOUzUsiRITy77kvApDuL.1r0olB2uU6eyDSaUvAkk1NpbpgA9a', 1);
 
 --
 -- Index pour les tables déchargées
@@ -140,7 +148,7 @@ ALTER TABLE `STYLES`
 -- AUTO_INCREMENT pour la table `UTILISATEURS`
 --
 ALTER TABLE `UTILISATEURS`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

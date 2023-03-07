@@ -1,54 +1,153 @@
-/*Page inscription*/
-.formIcon
+/* Navbar style*/
+nav
 {
-    font-size: 22px;
-}
-
-.mainContainer
-{
-    width: 35%;
     margin: auto;
 }
 
-.submitBtn
+.nav-link
 {
-    width: 40%;
-    margin-left: auto;
+    font-size: 14px;
 }
 
-@media only screen and (max-width: 1920px)
+.fa-xl
+{
+    font-size: 18px;
+}
+
+.form-control
+{
+ width: 100%
+}
+
+#navTitle
+{
+    width: 10%;
+}
+
+#navFirstUl
+{
+    width: 75%;
+}
+
+#navSecondUl
+{
+    width: 15%;
+}
+
+#search
+{
+    width: 50%;
+}
+
+@media only screen and (max-width: 2130px)
 {  
-    .mainContainer
+    #navFirstUl
+    {
+        width: 82%;
+    }
+    
+    #navSecondUl
+    {
+        width: 18%;
+    }
+
+    #search
+    {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1800px)
+{  
+    #navFirstUl
+    {
+        width: 78%;
+    }
+    
+    #navSecondUl
+    {
+        width: 22%;
+    }
+
+    #search
     {
         width: 55%;
     }
 }
 
-@media only screen and (max-width: 1450px)
+@media only screen and (max-width: 1500px)
 {  
-    .mainContainer
+    #navFirstUl
+    {
+        width: 74%;
+    }
+    
+    #navSecondUl
+    {
+        width: 26%;
+    }
+
+    #search
+    {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1300px)
+{  
+    #navFirstUl
+    {
+        width: 72%;
+    }
+    
+    #navSecondUl
+    {
+        width: 28%;
+    }
+
+    #search
+    {
+        width: 60%;
+    }
+
+    #navTitle
+    {
+        width: 12.5%;
+    }
+}
+
+@media only screen and (max-width: 1140px)
+{  
+    #navTitle
+    {
+        width: 20%;
+    }
+
+    #navFirstUl
+    {
+        width: 100%;
+    }
+    
+    #navSecondUl
+    {
+        width: 100%;
+    }
+
+    #search
     {
         width: 70%;
     }
 }
 
-@media only screen and (max-width: 1141px)
-{  
-    .mainContainer
-    {
-        width: 80%;
-    }
-}
-
 @media only screen and (max-width: 600px)
 {  
-    .mainContainer
+    #navTitle
     {
-        width: 95%;
+        width: 30%;
     }
 
-    .submitBtn
+    #search
     {
-        width: 55%;
+        width: 80%;
     }
 }
