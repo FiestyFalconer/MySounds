@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 07 mars 2023 à 08:04
+-- Généré le : mar. 07 mars 2023 à 13:18
 -- Version du serveur :  10.3.38-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3-4ubuntu2.18
 
@@ -46,7 +46,8 @@ CREATE TABLE `MUSIQUES` (
   `nomCreator` varchar(255) NOT NULL,
   `dateSortie` date NOT NULL,
   `nomImage` varchar(200) NOT NULL,
-  `nomMusique` varchar(100) NOT NULL
+  `nomMusique` varchar(100) NOT NULL,
+  `mp3Musique` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -59,6 +60,51 @@ CREATE TABLE `STYLES` (
   `idStyle` int(11) NOT NULL,
   `nomStyle` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `STYLES`
+--
+
+INSERT INTO `STYLES` (`idStyle`, `nomStyle`) VALUES
+(20, 'Africa'),
+(29, 'Alternative'),
+(30, 'Anime'),
+(22, 'Asia'),
+(16, 'Blues'),
+(17, 'Children'),
+(21, 'Christian'),
+(13, 'Classical'),
+(7, 'Country'),
+(12, 'Disco'),
+(33, 'Disney'),
+(14, 'Eletronic'),
+(26, 'Experimental'),
+(9, 'Folk'),
+(8, 'Funk'),
+(2, 'Hip hop'),
+(25, 'Independent'),
+(34, 'Indie Pop'),
+(35, 'Instrumental'),
+(11, 'Jazz'),
+(36, 'Karaoke'),
+(15, 'Latin America'),
+(27, 'Metal'),
+(10, 'Middle Eastern'),
+(18, 'New-age'),
+(37, 'Opera'),
+(1, 'Pop'),
+(38, 'Progressive'),
+(28, 'Punk'),
+(6, 'Reggae'),
+(4, 'Rhythm and blues'),
+(3, 'Rock'),
+(23, 'Ska'),
+(5, 'Soul'),
+(39, 'SoundTrack'),
+(24, 'Traditional'),
+(31, 'Trance'),
+(32, 'Trap'),
+(19, 'Vocal');
 
 -- --------------------------------------------------------
 
@@ -113,7 +159,8 @@ ALTER TABLE `MUSIQUES`
 -- Index pour la table `STYLES`
 --
 ALTER TABLE `STYLES`
-  ADD PRIMARY KEY (`idStyle`);
+  ADD PRIMARY KEY (`idStyle`),
+  ADD UNIQUE KEY `nomStyle` (`nomStyle`);
 
 --
 -- Index pour la table `STYLES_MUSIQUES`
@@ -142,7 +189,7 @@ ALTER TABLE `MUSIQUES`
 -- AUTO_INCREMENT pour la table `STYLES`
 --
 ALTER TABLE `STYLES`
-  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT pour la table `UTILISATEURS`
