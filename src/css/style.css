@@ -1,153 +1,54 @@
-/* Navbar style*/
-nav
+/*Page inscription*/
+.formIcon
 {
+    font-size: 22px;
+}
+
+.mainContainer
+{
+    width: 35%;
     margin: auto;
 }
 
-.nav-link
+.submitBtn
 {
-    font-size: 14px;
+    width: 40%;
+    margin-left: auto;
 }
 
-.fa-xl
-{
-    font-size: 18px;
-}
-
-.form-control
-{
- width: 100%
-}
-
-#navTitle
-{
-    width: 10%;
-}
-
-#navFirstUl
-{
-    width: 75%;
-}
-
-#navSecondUl
-{
-    width: 15%;
-}
-
-#search
-{
-    width: 50%;
-}
-
-@media only screen and (max-width: 2130px)
+@media only screen and (max-width: 1920px)
 {  
-    #navFirstUl
-    {
-        width: 82%;
-    }
-    
-    #navSecondUl
-    {
-        width: 18%;
-    }
-
-    #search
-    {
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 1800px)
-{  
-    #navFirstUl
-    {
-        width: 78%;
-    }
-    
-    #navSecondUl
-    {
-        width: 22%;
-    }
-
-    #search
+    .mainContainer
     {
         width: 55%;
     }
 }
 
-@media only screen and (max-width: 1500px)
+@media only screen and (max-width: 1450px)
 {  
-    #navFirstUl
-    {
-        width: 74%;
-    }
-    
-    #navSecondUl
-    {
-        width: 26%;
-    }
-
-    #search
-    {
-        width: 60%;
-    }
-}
-
-@media only screen and (max-width: 1300px)
-{  
-    #navFirstUl
-    {
-        width: 72%;
-    }
-    
-    #navSecondUl
-    {
-        width: 28%;
-    }
-
-    #search
-    {
-        width: 60%;
-    }
-
-    #navTitle
-    {
-        width: 12.5%;
-    }
-}
-
-@media only screen and (max-width: 1140px)
-{  
-    #navTitle
-    {
-        width: 20%;
-    }
-
-    #navFirstUl
-    {
-        width: 100%;
-    }
-    
-    #navSecondUl
-    {
-        width: 100%;
-    }
-
-    #search
+    .mainContainer
     {
         width: 70%;
     }
 }
 
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 1141px)
 {  
-    #navTitle
-    {
-        width: 30%;
-    }
-
-    #search
+    .mainContainer
     {
         width: 80%;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{  
+    .mainContainer
+    {
+        width: 95%;
+    }
+
+    .submitBtn
+    {
+        width: 55%;
     }
 }

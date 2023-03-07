@@ -36,7 +36,7 @@ nav
 
 #search
 {
-    width: 30%;
+    width: 35%;
 }
 
 
@@ -54,7 +54,7 @@ nav
 
     #search
     {
-        width: 40%;
+        width: 45%;
     }
 }
 
@@ -88,6 +88,11 @@ nav
     {
         width: 12.5%;
     }
+
+    #search
+    {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 1140px)
@@ -99,6 +104,8 @@ nav
 
     #navFirstUl
     {
+        border-top: 1px solid white;
+        margin-top: 20px;
         width: 100%;
     }
     
@@ -109,12 +116,22 @@ nav
 
     .nav-link
     {
-        margin-top: 10px;
+        margin-bottom: 5px;
     }
 
     #navFirstUl li
     {
-        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #navFirstUl li:first-child
+    {
+        margin-top: 20px;
+    }
+
+    #search
+    {
+        width: 55%;
     }
 }
 
@@ -123,5 +140,10 @@ nav
     #navTitle
     {
         width: 30%;
+    }
+
+    #search
+    {
+        width: 85%;
     }
 }
