@@ -22,13 +22,13 @@ if ($submit == "submit") {
                 header("Location: ../src/index.php");
             } else {
                 $_SESSION['idUser'] = "";
-                $messageErreur = '<div class="alert alert-warning" role="alert">Email ou mot de passe incorrect</div>';
+                $messageErreur = '<div class="alert alert-warning text-center" role="alert">Email ou mot de passe incorrect</div>';
             }
         } else {
-            $messageErreur = '<div class="alert alert-warning" role="alert">Email ou mot de passe incorrect</div>';
+            $messageErreur = '<div class="alert alert-warning text-center" role="alert">Email ou mot de passe incorrect</div>';
         }
     } else {
-        $messageErreur = '<div class="alert alert-warning" role="alert">Saisissez votre email et mot de passe</div>';
+        $messageErreur = '<div class="alert alert-warning text-center" role="alert">Saisissez votre email et mot de passe</div>';
     }
 }
 // var_dump($_SESSION['connected']);
@@ -48,45 +48,53 @@ if ($submit == "submit") {
     <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
         <!--Navbar-->
-        <?=$commmonNav?> 
+        <?= $commmonNav ?>
     </header>
-    <main class="container">
-        <div class="container">
-            <h1>Connexion</h1>
+    <main class="container-fluid mainContainer mt-5">
+        <div class="d-flex flex-column justify-content-center text-black w-100">
+            <h1 class="text-center h1 fw-bold mt-4 mb-4">Se connecter</h1>
 
-            <form action="" method="post">
-                
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                    <input type="email" name="email" id="email" value="<?=$email?>" class="form-control" />
-                    <label class="form-label" for="email">Email address</label>
+            <?= $messageErreur ?>
+
+            <form action="" method="post" class="py-4">
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope me-3 fa-fw mb-4 formIcon"></i>
+                    <div class="form-outline flex-fill mb-0">
+                        <input type="email" name="email" id="email" value="<?= $email ?>" class="form-control" />
+                        <label class="form-label" for="email">Email</label>
+                    </div>
                 </div>
 
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                    <input type="password" name="motDePasse" id="motDePasse" class="form-control" />
-                    <label class="form-label" for="motDePasse">Password</label>
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw mb-4 formIcon"></i>
+                    <div class="form-outline flex-fill mb-0">
+                        <input type="password" name="motDePasse" id="motDePasse" class="form-control" />
+                        <label class="form-label" for="motDePasse">Mot de passe</label>
+                    </div>
                 </div>
 
-                <!-- Submit button -->
-                <button type="submit" name="submit" class="btn btn-primary btn-block mb-4" value="submit">Submit</button>
+                <div class="d-flex justify-content-center mb-3 mb-lg-4">
+                    <button type="submit" name="submit" class="btn btn-primary btn-lg submitBtn" value="submit">Se connecter</button>
+                </div>
 
-                <div class="text-center">
-                    <p>Pas de compte? <a href="#!"> Inscription</a></p>
+                <div class="container-fluid alert alert-heading alert-secondary text-center mt-4">
+                    <div>Vous n'avez pas de compte ?
+                        <strong><a href="inscription.php" class="text-decoration-none text-primary">INSCRIVEZ-VOUS ICI</a></strong>
+                    </div>
                 </div>
 
             </form>
         </div>
-
-        <?= $messageErreur ?>
-
     </main>
+    
     <script src="assets/bootstrap/js/bootstrap.js"></script>
 </body>
 
