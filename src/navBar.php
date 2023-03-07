@@ -8,11 +8,11 @@ if ($_SESSION['connected'] == true) ////////////////////////// Changer la valeur
 {
     $userNav = '
     <li class="nav-item mx-2">
-        <a class="nav-link active" aria-current="page" href="deconnexion.php"><i class="fa-solid fa-right-from-bracket navbarIcon"></i> Déconnexion</a>
+        <a class="nav-link active" aria-current="page" href="deconnexion.php"><i class="fa-solid fa-right-from-bracket fa-xl"></i> Déconnexion</a>
     </li>
 
     <li class="nav-item mx-2">
-        <a class="nav-link active" aria-current="page" href="profil.php"><i class="fa-solid fa-user navbarIcon"></i> Profil</a>
+        <a class="nav-link active" aria-current="page" href="profil.php"><i class="fa-solid fa-user fa-xl"></i> Profil</a>
     </li>
     ';
 
@@ -21,7 +21,7 @@ if ($_SESSION['connected'] == true) ////////////////////////// Changer la valeur
     {
         $adminNav = '
         <li class="nav-item mx-1">
-            <a class="nav-link active" aria-current="page" href="musiquesAdmin.php"><i class="fa-solid fa-hammer navbarIcon"></i> Liste des musiques</a>
+            <a class="nav-link active" aria-current="page" href="musiquesAdmin.php"><i class="fa-solid fa-hammer fa-xl"></i> Liste des musiques</a>
         </li>';
     }
 }
@@ -30,11 +30,11 @@ else
     /* Affiche uniquement si l'utilisateur n'est pas connecter */
     $userNav = '
     <li class="nav-item mx-2">
-        <a class="nav-link active" aria-current="page" href="inscription.php"><i class="fa-solid fa-user-plus navbarIcon"></i> Inscription</a>
+        <a class="nav-link active" aria-current="page" href="inscription.php"><i class="fa-solid fa-user-plus fa-xl"></i> Inscription</a>
     </li>
 
     <li class="nav-item mx-2">
-        <a class="nav-link active" aria-current="page" href="connexion.php"><i class="fa-solid fa-arrow-right-to-bracket navbarIcon"></i> Connexion</a>
+        <a class="nav-link active" aria-current="page" href="connexion.php"><i class="fa-solid fa-arrow-right-to-bracket fa-xl"></i> Connexion</a>
     </li>
     ';
 }
@@ -43,8 +43,7 @@ else
 $commmonNav = '
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-
-        <a class="navbar-brand my-1" id="navTitle" href="index.php"><i class="fa-xl fa-solid fa-headphones"></i> MySounds</a>
+        <a class="navbar-brand my-1" id="navTitle" href="index.php"><i class="fa-2xl fa-solid fa-headphones"></i> MySounds</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,7 +53,7 @@ $commmonNav = '
 
             <ul class="navbar-nav me-auto mb-lg-0" id="navFirstUl">
                 <li class="nav-item mx-1">
-                    <a class="nav-link active" aria-current="page" href="index.php"><i class="fa-solid fa-house navbarIcon"></i> Accueil</a>
+                    <a class="nav-link active" aria-current="page" href="index.php"><i class="fa-solid fa-house fa-xl"></i> Accueil</a>
                 </li>
 
                 '.$adminNav.'
