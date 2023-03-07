@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    require_once "navBar.php";
+
     if(!isset($_SESSION['idUser'])){
         $_SESSION = [
             'idUser' => '',
@@ -8,7 +10,6 @@
             'admin' => false
         ];
     }
-    require_once "navBar.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">

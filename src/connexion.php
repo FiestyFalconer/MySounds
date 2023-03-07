@@ -1,6 +1,8 @@
 <?php
-require_once "../src/model/connexionModel.php";
 session_start();
+
+require_once "../src/model/connexionModel.php";
+require_once "navBar.php";
 
 $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -29,7 +31,7 @@ if ($submit == "submit") {
         $messageErreur = '<div class="alert alert-warning" role="alert">Saisissez votre email et mot de passe</div>';
     }
 }
-var_dump($_SESSION['connected']);
+// var_dump($_SESSION['connected']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,13 +40,22 @@ var_dump($_SESSION['connected']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Connexion</title>
+
+    <!-- Fontawesome -->
+    <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <header>
+        <!--Navbar-->
+        <?=$commmonNav?> 
+    </header>
     <main class="container">
         <div class="container">
             <h1>Connexion</h1>
