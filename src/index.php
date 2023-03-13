@@ -23,6 +23,7 @@
     <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
     <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/regular.css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
@@ -37,8 +38,38 @@
         <!--Navbar-->
         <?=$commmonNav?> 
     </header>
-    <main>
+    <main class="container-fluid mainContainerIndex mt-5">
+        <h2>3 musiques aléatoires</h2>
+        <div class="d-flex cardContainer bg-dark">
 
+            <div class="card m-3">
+                <img class="card-img-top" src="..." alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Nom de la musique</h5>
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+
+            <div class="card m-3">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+
+            <div class="card m-3">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
 
