@@ -1,7 +1,7 @@
 <?php
-
 $adminNav ="";
 $userNav = "";
+$nomPageCourante = str_replace(dirname($_SERVER['PHP_SELF']).'/', '', $_SERVER['PHP_SELF']); // Récupère le nom de la page courante
 
 /* Affiche uniquement si l'utilisateur est connecter */
 if ($_SESSION['connected'] == true)
@@ -25,18 +25,16 @@ if ($_SESSION['connected'] == true)
         </li>';
     }
 }
-else
+else 
 {
-    /* Affiche uniquement si l'utilisateur n'est pas connecter */
-    $userNav = '
-    <li class="nav-item mx-2">
-        <a class="nav-link active" aria-current="page" href="inscription.php"><i class="fa-solid fa-user-plus fa-xl"></i> Inscription</a>
-    </li>
-
-    <li class="nav-item mx-2">
-        <a class="nav-link active" aria-current="page" href="connexion.php"><i class="fa-solid fa-arrow-right-to-bracket fa-xl"></i> Connexion</a>
-    </li>
-    ';
+    /* Affiche uniquement si l'utilisateur n'est pas connecter et qu'il est sur la page d'accueil*/
+    if ($nomPageCourante == "index.php")
+    {
+        $userNav = '
+        <li class="nav-item mx-2">
+            <a class="nav-link active" aria-current="page" href="connexion.php"><i class="fa-solid fa-arrow-right-to-bracket fa-xl"></i> Connexion</a>
+        </li>';
+    }
 }
 
 // Navbar du site
@@ -56,14 +54,19 @@ $commmonNav = '
                     <a class="nav-link active" aria-current="page" href="index.php"><i class="fa-solid fa-house fa-xl"></i> Accueil</a>
                 </li>
 
-                '.$adminNav.'
+                '.$adminNav;
 
-                <li class="nav-item mx-1" id="search">
-                    <form class="d-flex" method="post">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light border-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </li>
+                if ($nomPageCourante == "index.php")
+                {
+                    $commmonNav.= '
+                    <li class="nav-item mx-1" id="search">
+                        <form class="d-flex" method="post">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light border-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </li>';
+                }
+                $commmonNav.='
             </ul>
 
             <ul class="navbar-nav d-flex justify-content-center" id="navSecondUl">
