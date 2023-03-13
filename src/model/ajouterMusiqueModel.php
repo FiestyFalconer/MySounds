@@ -30,20 +30,9 @@ function AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateS
         $targetFilePathImage = $targetDir.'/images/'.$uniqueNomImage.$image['name'];
         $targetFilePathMusique = $targetDir.'/musiques/'.$uniqueNomMusique.$musique['name'];
 
-
         $mimeTypeImage = mime_content_type($image['tmp_name']);
         $mimeTypeMusique = mime_content_type($musique['tmp_name']);
 
-
-        var_dump($image);
-        var_dump($musique);
-        var_dump($nomMusique);
-        var_dump($nbGenre);
-        var_dump($nomCreator);
-        var_dump($dateSortie);
-        var_dump($targetDir);
-        var_dump($typesImage);
-        var_dump($typesAudio);
 
         if(in_array($mimeTypeImage, $typesImage) && in_array($mimeTypeMusique, $typesAudio)){
 
@@ -74,8 +63,7 @@ function AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateS
                 if(file_exists($targetFilePathImage) && file_exists($targetFilePathMusique)){
                     unlink($targetFilePathImage);
                     unlink($targetFilePathMusique);
-                }
-                
+                }   
             }
         }else{
             $message = '<div id="messageErreur" class="alert alert-danger">Erreur pas le bon type de musique ou image</div>';
