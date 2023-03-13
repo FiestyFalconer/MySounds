@@ -11,24 +11,30 @@ if (!$_SESSION['admin']) {
 //declaration des variables
 $genre = GetGenre();
 $nbGenre = "";
-$tableauGenre = [];
-$scriptGenres = "";
-
 $i = 0;
+
+$typesImages = array("image/jpg", "image/png", "image/jpeg");
+$typesAudio = array("audio/mpeg");
 
 $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 
 if ($submit == "Ajouter musique") {
 
+    $targetDir = dirname(__DIR__)."/src/uploads";
+
     $image = $_FILES['imageMusique'];
     $musique = $_FILES['mp3Musique'];
     $nbGenre = $_POST['nbGenre'];
+    $nomMusique = filter_input(INPUT_POST,'nomMusique',FILTER_SANITIZE_SPECIAL_CHARS);
     $nomCreator = filter_input(INPUT_POST,'nomCreator',FILTER_SANITIZE_SPECIAL_CHARS);
     $dateSortie = filter_input(INPUT_POST, 'dateSortie', FILTER_SANITIZE_SPECIAL_CHARS);
 
-   var_dump($image);
+    if($image != "" && $musique != "" && $nomMusique != "" && !empty($nbGenre) && $nomCreator != "" && $dateSortie != ""){
+        
+        AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateSortie, $targetDir, $typesImages, $typesAudio);
+    }
+    var_dump($nbGenre);
 
-    $tableauGenre = array_unique($tableauGenre);
 }
 
 ?>
@@ -98,7 +104,7 @@ if ($submit == "Ajouter musique") {
                 <input type="file" id="imageMusique" name="imageMusique" accept="image/png, image/jpg, image/jpeg">
                 <br>
                 <label for=mp3Musique>Extrait de la musique :</label>
-                <input type="file" id="mp3Musique"  name="mp3Musique" accept="audio/mp3>
+                <input type="file" id="mp3Musique"  name="mp3Musique" accept="audio/mp3">
                 <br>
                 <input type="submit" name="submit" value="Ajouter musique">
 
