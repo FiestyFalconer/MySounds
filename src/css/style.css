@@ -21,6 +21,13 @@
     margin: auto;
 }
 
+.medias
+{
+    width: 75%;
+    height: 250px;
+    object-fit: cover;
+}
+
 @media only screen and (max-width: 1920px)
 {  
     .mainContainer
@@ -30,7 +37,13 @@
 
     .mainContainerIndex
     {
-        width: 75%;
+        width: 80%;
+    }
+
+    .medias
+    {
+        width: 85%;
+        height: 250px;
     }
 }
 
@@ -43,7 +56,7 @@
 
     .mainContainerIndex
     {
-        width: 80%;
+        width: 85%;
     }
 }
 
@@ -56,15 +69,34 @@
 
     .mainContainerIndex
     {
-        width: 90%;
+        width: 95%;
+    }
+
+    .submitBtn
+    {
+        width: 65%;
     }
 }
 
-@media only screen and (max-width: 900px)
-{  
+@media only screen and (max-width: 1000px)
+{
     .cardContainer
     {
         flex-wrap: wrap;
+    }
+
+    .mainContainerIndex
+    {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 800px)
+{
+
+    .mainContainerIndex
+    {
+        width: 80%;
     }
 }
 
@@ -84,4 +116,5 @@
     {
         width: 95%;
     }
+
 }

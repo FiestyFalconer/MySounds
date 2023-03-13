@@ -1,14 +1,14 @@
 <?php
-    session_start();
+session_start();
 
-    if(!isset($_SESSION['idUser'])){
-        $_SESSION = [
-            'idUser' => '',
-            'connected' => false,
-            'admin' => false
-        ];
-    }
-    require_once "navBar.php";
+if (!isset($_SESSION['idUser'])) {
+    $_SESSION = [
+        'idUser' => '',
+        'connected' => false,
+        'admin' => false
+    ];
+}
+require_once "navBar.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,37 +36,47 @@
 <body>
     <header>
         <!--Navbar-->
-        <?=$commmonNav?> 
+        <?= $commmonNav ?>
     </header>
     <main class="container-fluid mainContainerIndex mt-5">
-        <h2>3 musiques aléatoires</h2>
-        <div class="d-flex cardContainer bg-dark">
-
-            <div class="card m-3">
-                <img class="card-img-top" src="..." alt="">
+        <h2 class="text-center mb-4">3 musiques aléatoires</h2>
+        <div class="d-flex cardContainer bg-light">
+            <div class="card m-3 w-100">
+                <img class="card-img-top medias mx-auto mt-4" src="./upload/ocean.jpg" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">Nom de la musique</h5>
                     <i class="fa-regular fa-heart fa-lg"></i>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Style de musique</p>
+                    <p class="card-text">Date de sortie</p>
+                    <audio controls class="w-100">
+                        <source src="./upload/Watch-The-World-Burn.mp3" type="audio/mp3">
+                    </audio>
                 </div>
             </div>
 
-            <div class="card m-3">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card m-3 w-100">
+                <img class="card-img-top medias mx-auto mt-4" src="./upload/photoProfil.png" alt="image">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Nom de la musique</h5>
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                    <p class="card-text">Style de musique</p>
+                    <p class="card-text">Date de sortie</p>
+                    <audio controls class="w-100">
+                        <source src="./upload/Watch-The-World-Burn.mp3" type="audio/mp3">
+                    </audio>
                 </div>
             </div>
 
-            <div class="card m-3">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card m-3 w-100">
+                <img class="card-img-top medias mx-auto mt-4" src="./upload/fondEcran.png" alt="image">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Nom de la musique</h5>
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                    <p class="card-text">Style de musique</p>
+                    <p class="card-text">Date de sortie</p>
+                    <audio controls class="w-100">
+                        <source src="./upload/Watch-The-World-Burn.mp3" type="audio/mp3">
+                    </audio>
                 </div>
             </div>
         </div>
