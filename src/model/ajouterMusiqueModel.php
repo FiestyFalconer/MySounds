@@ -49,7 +49,7 @@ function AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateS
                 foreach($nbGenre as $genre){
                     $query = $db->prepare("
                     INSERT INTO `STYLES_MUSIQUES`(`idMusique`, `idStyle`) 
-                    VALUES ((SELECT `idMusique` FROM `MUSIQUES` WHERE `nomMusique` = ?),(SELECT `idStyle` FROM `STYLES` WHERE `nomStyle` = ?))
+                    VALUES ((SELECT `idMusique` FROM `MUSIQUES` WHERE `nomMusique` = ?,(SELECT `idStyle` FROM `STYLES` WHERE `nomStyle` = ?))
                     ");
                     $query->execute([$nomMusique, $genre]);
                 }
@@ -79,6 +79,10 @@ function AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateS
         return $message;
     } catch (PDOException $e) {
         $db->rollBack();
+        if(file_exists($targetFilePathImage) && file_exists($targetFilePathMusique)){
+            unlink($targetFilePathImage);
+            unlink($targetFilePathMusique);
+        }   
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
     }
 }
