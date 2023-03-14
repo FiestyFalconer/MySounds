@@ -42,7 +42,7 @@ require_once "navBar.php";
         <h2 class="text-center mb-4">3 musiques aléatoires</h2>
         <div class="d-flex cardContainer bg-light">
             <div class="card m-3 w-100">
-                <img class="card-img-top medias mx-auto mt-4" src="./upload/ocean.jpg" alt="image">
+                <img class="card-img-top medias mx-auto mt-4" src="./uploads/images/16787022251516058909640ef691a60bdinner-orion-nebula-1663173288.png" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">Nom de la musique</h5>
                     <i class="fa-regular fa-heart fa-lg"></i>
@@ -55,7 +55,7 @@ require_once "navBar.php";
             </div>
 
             <div class="card m-3 w-100">
-                <img class="card-img-top medias mx-auto mt-4" src="./upload/photoProfil.png" alt="image">
+                <img class="card-img-top medias mx-auto mt-4" src="./uploads/images/16787022251516058909640ef691a60bdinner-orion-nebula-1663173288.png" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">Nom de la musique</h5>
                     <i class="fa-regular fa-heart fa-lg"></i>
@@ -68,7 +68,7 @@ require_once "navBar.php";
             </div>
 
             <div class="card m-3 w-100">
-                <img class="card-img-top medias mx-auto mt-4" src="./upload/fondEcran.png" alt="image">
+                <img class="card-img-top medias mx-auto mt-4" src="./uploads/images/16787022251516058909640ef691a60bdinner-orion-nebula-1663173288.png" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">Nom de la musique</h5>
                     <i class="fa-regular fa-heart fa-lg"></i>

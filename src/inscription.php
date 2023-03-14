@@ -90,7 +90,7 @@ if ($submit == 'submit')
           <i class="fas fa-user fa-lg me-3 fa-fw mb-4 formIcon"></i>
           <div class="form-outline flex-fill mb-0">
             <input type="text" id="nom" name="nom" class="form-control" value="<?=$nom?>">
-            <label class="form-label" for="nom">Nom</label>
+            <label class="form-label" for="nom">Nom d'utilisateur</label>
           </div>
         </div>
 
