@@ -33,6 +33,8 @@ function AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateS
         $mimeTypeImage = mime_content_type($image['tmp_name']);
         $mimeTypeMusique = mime_content_type($musique['tmp_name']);
 
+        $nomImage = $uniqueNomImage.$image['name'];
+        $nomMusiqueMp3 = $uniqueNomMusique.$musique['name'];
 
         if(in_array($mimeTypeImage, $typesImage) && in_array($mimeTypeMusique, $typesAudio)){
 
@@ -44,12 +46,12 @@ function AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateS
                     INSERT INTO `MUSIQUES`(`nomCreator`, `dateSortie`, `nomImage`, `nomMusique`, `mp3Musique`) 
                     VALUES (?,?,?,?,?)
                 ");
-                $query->execute([$nomCreator,$dateSortie,$uniqueNomImage,$nomMusique, $uniqueNomMusique]);
+                $query->execute([$nomCreator,$dateSortie,$nomImage,$nomMusique, $nomMusiqueMp3]);
                 
                 foreach($nbGenre as $genre){
                     $query = $db->prepare("
                     INSERT INTO `STYLES_MUSIQUES`(`idMusique`, `idStyle`) 
-                    VALUES ((SELECT `idMusique` FROM `MUSIQUES` WHERE `nomMusique` = ?,(SELECT `idStyle` FROM `STYLES` WHERE `nomStyle` = ?))
+                    VALUES ((SELECT `idMusique` FROM `MUSIQUES` WHERE `nomMusique` = ?),(SELECT `idStyle` FROM `STYLES` WHERE `nomStyle` = ?))
                     ");
                     $query->execute([$nomMusique, $genre]);
                 }

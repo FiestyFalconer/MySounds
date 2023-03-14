@@ -12,6 +12,7 @@ if (!$_SESSION['admin']) {
 $genre = GetGenre();
 $nbGenre = "";
 $i = 0;
+$message = "";
 
 $typesImages = array("image/jpg", "image/png", "image/jpeg");
 $typesAudio = array("audio/mpeg");
@@ -29,9 +30,12 @@ if ($submit == "Ajouter musique") {
     $nomCreator = filter_input(INPUT_POST,'nomCreator',FILTER_SANITIZE_SPECIAL_CHARS);
     $dateSortie = filter_input(INPUT_POST, 'dateSortie', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    if($image != "" && $musique != "" && $nomMusique != "" && !empty($nbGenre) && $nomCreator != "" && $dateSortie != ""){
+    if($image['name'] != "" && $musique['name'] != "" && $nomMusique != "" && !empty($nbGenre) && $nomCreator != "" && $dateSortie != ""){
         
-        AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateSortie, $targetDir, $typesImages, $typesAudio);
+        $message = AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateSortie, $targetDir, $typesImages, $typesAudio);
+    }
+    else{
+        $message = '<div class="alert alert-warning text-center" role="alert">Tous les champs doivent être remplis</div>';
     }
     var_dump($nbGenre);
 
@@ -109,6 +113,9 @@ if ($submit == "Ajouter musique") {
                 <input type="submit" name="submit" value="Ajouter musique">
 
             </form>
+        </div>
+        <div class="container">
+            <?=$message?>
         </div>
     </main>
     <footer>
