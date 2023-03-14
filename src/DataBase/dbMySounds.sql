@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 07 mars 2023 à 13:18
+-- Généré le : mar. 14 mars 2023 à 14:51
 -- Version du serveur :  10.3.38-MariaDB-0ubuntu0.20.04.1
--- Version de PHP : 7.4.3-4ubuntu2.18
+-- Version de PHP : 8.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,42 +68,61 @@ CREATE TABLE `STYLES` (
 INSERT INTO `STYLES` (`idStyle`, `nomStyle`) VALUES
 (20, 'Africa'),
 (29, 'Alternative'),
-(30, 'Anime'),
 (22, 'Asia'),
+(30, 'Bachata'),
 (16, 'Blues'),
 (17, 'Children'),
 (21, 'Christian'),
 (13, 'Classical'),
 (7, 'Country'),
+(33, 'Death metal'),
 (12, 'Disco'),
-(33, 'Disney'),
-(14, 'Eletronic'),
+(41, 'Drill'),
+(42, 'Drumstep'),
+(43, 'Dubstep'),
+(14, 'Electro'),
+(44, 'Electro house'),
 (26, 'Experimental'),
+(45, 'Fado'),
 (9, 'Folk'),
 (8, 'Funk'),
+(46, 'Gospel'),
+(48, 'Hard rock'),
+(47, 'Heavy metal'),
 (2, 'Hip hop'),
 (25, 'Independent'),
 (34, 'Indie Pop'),
 (35, 'Instrumental'),
+(15, 'J-pop'),
 (11, 'Jazz'),
-(36, 'Karaoke'),
-(15, 'Latin America'),
+(36, 'K-pop'),
+(49, 'Lo-fi'),
 (27, 'Metal'),
 (10, 'Middle Eastern'),
 (18, 'New-age'),
+(50, 'Nightcore'),
 (37, 'Opera'),
+(51, 'Phonk'),
 (1, 'Pop'),
+(52, 'Power metal'),
 (38, 'Progressive'),
 (28, 'Punk'),
-(6, 'Reggae'),
+(6, 'Reggaeton'),
 (4, 'Rhythm and blues'),
 (3, 'Rock'),
-(23, 'Ska'),
+(53, 'Rock n roll'),
+(56, 'Slow'),
 (5, 'Soul'),
 (39, 'SoundTrack'),
+(55, 'Swing'),
+(23, 'Symphonie'),
+(54, 'Synthwave'),
+(57, 'Tango'),
+(58, 'Techno'),
 (24, 'Traditional'),
 (31, 'Trance'),
 (32, 'Trap'),
+(59, 'Tropical house'),
 (19, 'Vocal');
 
 -- --------------------------------------------------------
@@ -189,7 +208,7 @@ ALTER TABLE `MUSIQUES`
 -- AUTO_INCREMENT pour la table `STYLES`
 --
 ALTER TABLE `STYLES`
-  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT pour la table `UTILISATEURS`
