@@ -21,24 +21,22 @@ $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 
 if ($submit == "Ajouter musique") {
 
-    $targetDir = dirname(__DIR__)."/src/uploads";
+    $targetDir = dirname(__DIR__) . "/src/uploads";
 
     $image = $_FILES['imageMusique'];
     $musique = $_FILES['mp3Musique'];
     $nbGenre = $_POST['nbGenre'];
-    $nomMusique = filter_input(INPUT_POST,'nomMusique',FILTER_SANITIZE_SPECIAL_CHARS);
-    $nomCreator = filter_input(INPUT_POST,'nomCreator',FILTER_SANITIZE_SPECIAL_CHARS);
+    $nomMusique = filter_input(INPUT_POST, 'nomMusique', FILTER_SANITIZE_SPECIAL_CHARS);
+    $nomCreator = filter_input(INPUT_POST, 'nomCreator', FILTER_SANITIZE_SPECIAL_CHARS);
     $dateSortie = filter_input(INPUT_POST, 'dateSortie', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    if($image['name'] != "" && $musique['name'] != "" && $nomMusique != "" && !empty($nbGenre) && $nomCreator != "" && $dateSortie != ""){
-        
+    if ($image['name'] != "" && $musique['name'] != "" && $nomMusique != "" && !empty($nbGenre) && $nomCreator != "" && $dateSortie != "") {
+
         $message = AddMusique($image, $musique, $nomMusique, $nbGenre, $nomCreator, $dateSortie, $targetDir, $typesImages, $typesAudio);
-    }
-    else{
+    } else {
         $message = '<div class="alert alert-warning text-center" role="alert">Tous les champs doivent être remplis</div>';
     }
     var_dump($nbGenre);
-
 }
 
 ?>
@@ -70,21 +68,19 @@ if ($submit == "Ajouter musique") {
         <!--Navbar-->
         <?= $commmonNav ?>
     </header>
-    <main>
-        <div class="container">
-            <h1>Ajouter une Musique</h1>
-        </div>
-        <div class="container">
-            <form action="" method="post" enctype="multipart/form-data" class="mx-1 mx-md-4">
-                <p>
-                    <label>Combien de genres:</label>
+    <main class="container-fluid mainContainerIndex mt-5">
+        <h2 class="text-center mb-4">Ajouter une Musique</h2>
+        <div class="d-flex w-100 justify-content-center">
+            <form action="" method="post" enctype="multipart/form-data" class="formAjouterMusique mx-auto mx-md-4">
+                <div class="d-flex my-2 flex-wrap">
+                    <label class="form-label form-label-ajouterMusique">Les genres :</label>
                     <?php
 
-                    $tableau = "<select id='nbGenre' name='nbGenre[]' multiple  >";
-                    foreach($genre as $value) {
-                        if($i == 0){
+                    $tableau = "<select id='nbGenre' class='form-control' name='nbGenre[]' multiple  >";
+                    foreach ($genre as $value) {
+                        if ($i == 0) {
                             $tableau .= "<option  value=" . $value['nomStyle'] . " selected>" . $value['nomStyle'] . "</option>";
-                        }else{
+                        } else {
                             $tableau .= "<option  value=" . $value['nomStyle'] . ">" . $value['nomStyle'] . "</option>";
                         }
                         $i++;
@@ -92,31 +88,43 @@ if ($submit == "Ajouter musique") {
                     $tableau .= ' </select>';
                     echo $tableau;
                     ?>
-                </p>
-                <p id="selectedGenres"></p>
-                
-                <label for="nomMusique">Nom de la musique :</label>
-                <input type="text" id="nomMusique" name="nomMusique">
-                <br>
-                <label for="nomCreator">Creator/Bande :</label>
-                <input id="nomCreator" type="text" name="nomCreator">
-                <br>
-                <label for="dateSortie">Date :</label>
-                <input id="dateSortie" type="date" name="dateSortie">
-                <br>
-                <label for="imageMusique">Image de la musique :</label>
-                <input type="file" id="imageMusique" name="imageMusique" accept="image/png, image/jpg, image/jpeg">
-                <br>
-                <label for=mp3Musique>Extrait de la musique :</label>
-                <input type="file" id="mp3Musique"  name="mp3Musique" accept="audio/mp3">
-                <br>
-                <input type="submit" name="submit" value="Ajouter musique">
+                </div>
+                <div class="d-flex my-2" id="selectedGenres"></div>
 
+                <div class="d-flex my-2 flex-wrap">
+                    <label class="form-label form-label-ajouterMusique" for="nomMusique">Nom de la musique :</label>
+                    <input type="text" id="nomMusique" class="form-control w-100" name="nomMusique">
+                </div>
+
+                <div class="d-flex my-2 flex-wrap">
+                    <label class="form-label form-label-ajouterMusique" for="nomCreator">Nom de l'artiste / groupe :</label>
+                    <input id="nomCreator" type="text" class="form-control" name="nomCreator">
+                </div>
+
+                <div class="d-flex my-2 flex-wrap">
+                    <label class="form-label form-label-ajouterMusique" for="dateSortie">Date de sortie:</label>
+                    <input id="dateSortie" type="date" class="form-control" name="dateSortie">
+                </div>  
+
+                <div class="d-flex my-2 flex-wrap">
+                    <label class="form-label form-label-ajouterMusique" for="imageMusique">Image de la musique : </label>
+                    <input type="file" id="imageMusique" name="imageMusique" class="form-control" accept="image/png, image/jpg, image/jpeg">
+                </div class="d-flex">
+
+                <div class="d-flex my-2 flex-wrap">
+                    <label class="form-label form-label-ajouterMusique" for=mp3Musique>Extrait de la musique : </label>
+                    <input type="file" id="mp3Musique" name="mp3Musique" class="form-control" accept="audio/mp3">
+                </div>
+
+                <div class="d-flex my-2 justify-content-end">
+                    <input class="btn btn-primary submitBtn" type="submit" name="submit" value="Ajouter musique">
+                </div>
             </form>
         </div>
-        <div class="container">
-            <?=$message?>
-        </div>
+    </main>
+    <div class="container">
+        <?= $message ?>
+    </div>
     </main>
     <footer>
 
